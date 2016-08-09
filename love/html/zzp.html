@@ -16,6 +16,58 @@
 <div data-role="page" id="page_1" class="page textPage">
     <div data-role="header" class="header"><h1>I ❤ U</h1></div>
     <div data-role="content" class="content">
+        <p>
+            <label>一个懒洋洋的下午</label> <label>我无意间收到你的电话号码</label></p>
+        <br/>
+
+        <p><label>后来</label>
+            <label>我主动和你联系，去找你</label></p>
+        <br/>
+
+        <p><label>从那时起，我们在一起了</label></p>
+
+        <p class="highlight time">
+            <label></label>
+        </p>
+    </div>
+</div>
+<div data-role="page" id="page_2" class="page textPage">
+    <div data-role="header" class="header"><h1>I ❤ U</h1></div>
+    <div data-role="content" class="content">
+        <p>
+            <label>后来</label>
+            <label>一个意外惊喜降临</label>
+            <label>我们有了爱情的结晶</label>
+        </p>
+
+        <div style="height: 1rem"></div>
+        <p><label>我一直默数着她的到来</label></p>
+
+        <div style="height: 1rem"></div>
+
+        <p>
+            <label>我们都知道</label>
+        </p>
+
+        <p>
+            <label>快了</label>
+            <label>你我快做人母人父了</label>
+        </p>
+
+        <div style="height: 1rem"></div>
+
+        <p><label>还有</label></p>
+
+        <p class="highlight time">
+            <label></label>
+        </p>
+
+        <p><label>孩子就要出生啦~</label></p>
+    </div>
+</div>
+<div data-role="page" id="page_3" class="page textPage">
+    <div data-role="header" class="header"><h1>I ❤ U</h1></div>
+    <div data-role="content" class="content">
 
         <p><label> 亲爱的琳琳</label></p>
         <br/>
@@ -41,7 +93,7 @@
         </p>
     </div>
 </div>
-<div data-role="page" id="page_2" class="page textPage">
+<div data-role="page" id="page_4" class="page textPage">
     <div data-role="header" class="header"><h1>I ❤ U</h1></div>
     <div data-role="content" class="content" style="width:7rem; margin:auto">
         <p><label> 忘川之畔<label></label>与姝长相憩</label></p><br/>
@@ -53,23 +105,23 @@
         <p><label> 燃起灵犀一炉</label><label>枯骨生出曼</label></p>
     </div>
 </div>
-<div data-role="page" id="page_3" class="page default">
+<div data-role="page" id="page_5" class="page default">
     <div data-role="header" class="header"><h1>I ❤ U</h1></div>
     <div data-role="content" class="content">
-        <div class="title highlight">这是你最动人的时候</div>
-        <div class="divImg "><img src="../img/zzp_1.png"></div>
-        <div></div>
-        <div class="title highlight">也是我最想爱你的样子</div>
+        <div class="title">这是你最动人的时候</div>
+        <div class="divImg"><img src="../img/zzp_1.png"></div>
+        <div style="height: 2rem;"></div>
+        <div class="title">也是我最想爱你的样子</div>
         <div class="divImg"><img src="../img/zzp_2.png"></div>
-        <div style="clear=both; height:2rem"></div>
-        <div class="title highlight">我会镌刻我们相遇</div>
-        <div class="title highlight">相爱的画面 @2016 七夕</div> 
-        <div style="clear=both; height:3rem"></div>
+        <div style="height: 2rem;"></div>
+        <div class="title">我会镌刻我们相遇</div>
+        <div class="title">相爱的画面 @2016 七夕</div>
+        <div style="height: 2rem;"></div>
     </div>
 </div>
 <script>
     $(document).ready(function () {
-        var MaxPages = 3;
+        var MaxPages = 5;
         $(".page").on("swipeleft", function () {
             var id = $(this).attr("id");
             var arr = id.split("_");
@@ -94,6 +146,34 @@
                     });
             }
         });
+
+        function showMeetTime() {
+            var dateNow = new Date();
+            var dateStart = new Date("2015/03/04 15:52:00");
+            var diffSeconds = parseInt((dateNow.getTime() - dateStart.getTime()) / 1000);
+
+            var days = parseInt((diffSeconds / 60 / 60 / 24).toString());
+            var hours = parseInt(((diffSeconds - days * 24 * 60 * 60) / 3600).toString());
+            var mins = parseInt(((diffSeconds / 60) % 60).toString());
+            var seconds = parseInt((diffSeconds % 60).toString());
+
+            $("#page_1 p.time label").text(days + "天 " + hours + "小时 " + mins + "分钟 " + seconds + "秒");
+        };
+
+        showMeetTime();
+        setInterval(showMeetTime, 1000);
+
+        function showBobyTime() {
+            var dateNow = new Date();
+            var dateStart = new Date("2016/10/28");
+            var diffSeconds = parseInt((dateStart.getTime() - dateNow.getTime()) / 1000);
+            if (diffSeconds > 0) {
+                var days = parseInt((diffSeconds / 60 / 60 / 24).toString());
+                $("#page_2 p.time label").text(days + "天");
+            }
+        };
+        showBobyTime();
+        setInterval(showBobyTime, 1000 * 60);
     });
 </script>
 </body>
