@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery.mobile.changePage demo</title>
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="../css/index.css">
+
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+<div data-role="page" id="page_1" class="page textPage">
+    <div data-role="header" class="header"><h1>I ❤ U</h1></div>
+    <div data-role="content" class="content">
+
+        <p><label> 亲爱的琳琳</label></p>
+        <br/>
+
+        <p>
+            <label>叫你琳琳是因为</label>
+            <label>我觉得我可以疼爱你</label>
+        </p>
+
+        <br/>
+
+        <p>
+            <label>一直没想过</label>
+            <label>用一种我认为比较叼的方式来跟你</label>
+        </p>
+
+        <br/>
+
+        <p>
+            <label>我也不知道怎么形容</label>
+            <label>我现在只能想起我心里</label>
+            <label>一直想对你并且曾经跟你讲过的诗</label>
+        </p>
+    </div>
+</div>
+<div data-role="page" id="page_2" class="page textPage">
+    <div data-role="header" class="header"><h1>I ❤ U</h1></div>
+    <div data-role="content" class="content" style="width:7rem; margin:auto">
+        <p><label> 忘川之畔<label></label>与姝长相憩</label></p><br/>
+
+        <p><label> 烂泥之中</label><label>与姝发相缠</label></p><br/>
+
+        <p><label>寸心无可表</label><label>唯有魂一缕</label></p><br/>
+
+        <p><label> 燃起灵犀一炉</label><label>枯骨生出曼</label></p>
+    </div>
+</div>
+<div data-role="page" id="page_3" class="page default">
+    <div data-role="header" class="header"><h1>I ❤ U</h1></div>
+    <div data-role="content" class="content">
+        <div class="title">这是你最动人的时候</div>
+        <div class="divImg"><img src="../img/zzp_1.png"></div>
+        <div></div>
+        <div class="title">也是我最想爱你的样子</div>
+        <div class="divImg"><img src="../img/zzp_2.png"></div>
+        <div></div>
+        <div class="title">我会镌刻我们相遇</div>
+        <div class="title">相爱的画面 @2016 七夕</div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        var MaxPages = 5;
+        $(".page").on("swipeleft", function () {
+            var id = $(this).attr("id");
+            var arr = id.split("_");
+            if (arr.length == 2) {
+                var num = parseInt(arr[1]);
+                if (num < MaxPages)
+                    $.mobile.changePage("zzp.html#page_" + (++num).toString(), {
+                        transition: "slide",
+                        changeHash: false
+                    });
+            }
+        }).on("swiperight", function () {
+            var id = $(this).attr("id");
+            var arr = id.split("_");
+            if (arr.length == 2) {
+                var num = parseInt(arr[1]);
+                if (num > 1)
+                    $.mobile.changePage("zzp.html#page_" + (--num).toString(), {
+                        transition: "slide",
+                        reverse: true,
+                        changeHash: false
+                    });
+            }
+        });
+    });
+</script>
+</body>
+</html>
