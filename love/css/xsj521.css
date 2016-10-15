@@ -18,6 +18,7 @@ div.page .header h1 {
 }
 
 .textPage .content {
+    width: 15rem;
     margin: auto;
 }
 
@@ -30,18 +31,18 @@ div.page .content .highlight{
     color: rgb(215, 89, 139);
 }
 
-.default .content {
+.content {
     width: 100%;
     padding: 0;
 }
 
-.default .divImg {
+.divImg {
     width: 95%;
     margin: 0 auto;
     padding: 0;
 }
 
-.default .divImg img {
+.divImg img {
     width: 100%;
     margin: auto;
 }
@@ -51,5 +52,3 @@ div.page .content .highlight{
     margin: 0.5rem auto 0.5rem auto;
     text-align: center;
 }
-
-
